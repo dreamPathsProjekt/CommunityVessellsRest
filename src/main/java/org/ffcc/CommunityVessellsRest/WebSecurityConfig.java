@@ -14,6 +14,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http
 	            .authorizeRequests()
+	            //edit urls to permit Access
 	                .antMatchers("/", "/home").permitAll()
 	                .anyRequest().authenticated()
 	                .and()
@@ -27,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 	        auth
+	        //might have to edit this line
 	            .inMemoryAuthentication()
 	                .withUser("user").password("password").roles("USER");
 	    }
