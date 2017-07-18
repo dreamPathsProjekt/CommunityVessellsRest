@@ -27,7 +27,7 @@ public class Event {
 	private String address;
 	private String avatar;
 	
-	@OneToOne(optional=false)
+	@OneToOne
 	@JoinColumn(name = "eventContainer_id")
 	//@RestResource(path = "eventContainer", rel="eventContainer")
 	private EventContainer eventContainer;

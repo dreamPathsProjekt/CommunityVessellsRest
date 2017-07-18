@@ -43,11 +43,11 @@ public class TestController {
 		cont.setCapacity(10);
 		cont.setAvailableProducts(0);
 		eventContainerRepository.save(cont);
-		event.setEventContainer(cont);
+		
 		
 		eventRepository.save(event);
-		cont.setEvent(event);
-		eventRepository.save(event);
+		
+		
 		
 		
 		
