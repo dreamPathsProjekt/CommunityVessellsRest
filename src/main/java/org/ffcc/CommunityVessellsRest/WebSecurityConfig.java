@@ -5,7 +5,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
+/*
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -15,7 +15,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        http
 	            .authorizeRequests()
 	            //edit urls to permit Access
-	                .antMatchers("/", "/home").permitAll()
+	                .antMatchers("/", "/home","/api").permitAll()
 	                .anyRequest().authenticated()
 	                .and()
 	            .formLogin()
@@ -33,3 +33,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	                .withUser("user").password("password").roles("USER");
 	    }
 }
+*/

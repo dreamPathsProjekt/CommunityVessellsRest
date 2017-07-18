@@ -1,4 +1,4 @@
-package org.ffcc.CommunityVessellsRest;
+package org.ffcc.CommunityVessellsRest.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
