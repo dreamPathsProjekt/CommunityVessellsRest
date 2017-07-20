@@ -62,7 +62,7 @@ public class TestController {
 		}
 	
 	@GetMapping(path="/test/login")
-	public String login(HttpSession session, @RequestParam Organization org){
+	public String login(HttpSession session){
 		session.setAttribute("user", "org");
 		session.setAttribute("id", "1");
 		
@@ -70,8 +70,13 @@ public class TestController {
 	}
 	@GetMapping(path="/test/testSession")
 	public String testSession(HttpSession session){
-		if(session.getAttribute("user")!=null&&session.getAttribute("user").equals("org")){
-			return "index";
+		try{
+			if(session.getAttribute("user").equals("org")){
+				return "index";
+			}
+		}
+		catch(NullPointerException nlp){
+			return  "Not logged in";
 		}
 		return "Not logged in";
 	}
