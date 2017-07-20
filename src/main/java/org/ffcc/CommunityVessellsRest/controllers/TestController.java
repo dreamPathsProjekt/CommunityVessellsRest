@@ -1,5 +1,8 @@
 package org.ffcc.CommunityVessellsRest.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.ffcc.CommunityVessellsRest.domain.Event;
 import org.ffcc.CommunityVessellsRest.domain.EventContainer;
 import org.ffcc.CommunityVessellsRest.domain.Organization;
@@ -7,13 +10,17 @@ import org.ffcc.CommunityVessellsRest.repository.EventContainerRepository;
 import org.ffcc.CommunityVessellsRest.repository.EventRepository;
 import org.ffcc.CommunityVessellsRest.repository.OrganizationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+
 public class TestController {
 	
 	@Autowired
@@ -53,4 +60,19 @@ public class TestController {
 		
 		return	 "Saved";
 		}
+	
+	@GetMapping(path="/test/login")
+	public String login(HttpSession session, @RequestParam Organization org){
+		session.setAttribute("user", "org");
+		session.setAttribute("id", "1");
+		
+		return "redirect:/test/testSession";
+	}
+	@GetMapping(path="/test/testSession")
+	public String testSession(HttpSession session){
+		if(session.getAttribute("user")!=null&&session.getAttribute("user").equals("org")){
+			return "index";
+		}
+		return "Not logged in";
+	}
 }
