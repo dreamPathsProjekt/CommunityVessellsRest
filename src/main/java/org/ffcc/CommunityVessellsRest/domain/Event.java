@@ -2,6 +2,7 @@ package org.ffcc.CommunityVessellsRest.domain;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,10 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.core.io.SerializedString;
 
 @Entity
-public class Event {
+public class Event{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -27,9 +33,8 @@ public class Event {
 	private String address;
 	private String avatar;
 	
-	@OneToOne
-	@JoinColumn(name = "eventContainer_id")
-	//@RestResource(path = "eventContainer", rel="eventContainer")
+	@JsonFormat
+	@OneToOne(mappedBy="event", cascade = CascadeType.ALL, orphanRemoval=true)	
 	private EventContainer eventContainer;
 	
 	@ManyToOne
@@ -41,6 +46,23 @@ public class Event {
 	public Event() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 
 	public String getTitle() {
 		return title;
@@ -54,16 +76,16 @@ public class Event {
 		return startdate;
 	}
 
-	public void setStartdate(Date startdate) {
-		this.startdate = startdate;
+	public void setStartdate(String startdate) {
+		this.startdate = java.sql.Date.valueOf(startdate);
 	}
 
 	public Date getClosedate() {
 		return closedate;
 	}
 
-	public void setClosedate(Date closedate) {
-		this.closedate = closedate;
+	public void setClosedate(String closedate) {
+		this.closedate = java.sql.Date.valueOf(closedate);
 	}
 
 	public String getAddress() {

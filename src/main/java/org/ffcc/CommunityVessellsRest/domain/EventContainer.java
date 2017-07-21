@@ -4,10 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
 @Entity
-public class EventContainer {
+public class EventContainer{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -17,10 +25,32 @@ public class EventContainer {
 	private String title;
 	private String type;
 	private int capacity;
-	private int availableProducts;
 	
-	@OneToOne(mappedBy="eventContainer")
+	
+	private int availableProducts=0;
+	
+	
+	@OneToOne
+	@JoinColumn(name = "event_id")
 	private Event event;
+
+	
+	
+	
+	
+	public EventContainer() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getTitle() {
 		return title;
