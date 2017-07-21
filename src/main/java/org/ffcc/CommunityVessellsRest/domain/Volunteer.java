@@ -12,6 +12,7 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.Constraint;
 
+import org.ffcc.CommunityVessellsRest.encryption.EncryptMD5;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -53,7 +54,7 @@ public class Volunteer {
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = EncryptMD5.encrypt(password);
 	}
 	public String getFirstName() {
 		return firstName;

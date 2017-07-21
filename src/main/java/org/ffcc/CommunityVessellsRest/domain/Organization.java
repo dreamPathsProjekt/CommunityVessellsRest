@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.ffcc.CommunityVessellsRest.encryption.EncryptMD5;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -62,7 +63,7 @@ public class Organization {
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = EncryptMD5.encrypt(password);
 	}
 
 	public String getAvatarPath() {
