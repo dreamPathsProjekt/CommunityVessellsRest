@@ -8,5 +8,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 public interface VolunteerRepository extends PagingAndSortingRepository<Volunteer, Long> {
-	Volunteer findByEmail( String email);
+	Volunteer findVolunteerByEmail( String email);
 }

@@ -16,6 +16,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 public class Organization {
@@ -34,9 +36,10 @@ public class Organization {
 	
 	@Length(min = 8, message = "*Your password must have at least 8 characters")
 	@NotEmpty(message = "*Please provide your password")
-	@JsonIgnore	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 	
+	private String name;
 	private String avatarPath;
 	private String description;
 	private String type;
@@ -49,6 +52,17 @@ public class Organization {
 	public Organization() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 
 	public String getEmail() {
 		return email;
@@ -65,6 +79,18 @@ public class Organization {
 	public void setPassword(String password) {
 		this.password = EncryptMD5.encrypt(password);
 	}
+
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 	public String getAvatarPath() {
 		return avatarPath;

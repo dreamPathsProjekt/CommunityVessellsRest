@@ -8,4 +8,6 @@ public interface EventService {
 	void createEvent(Event event);
 	
 	void uploadImage(Long id,MultipartFile file);
+	
+	Event findEventById(Long id);
 }

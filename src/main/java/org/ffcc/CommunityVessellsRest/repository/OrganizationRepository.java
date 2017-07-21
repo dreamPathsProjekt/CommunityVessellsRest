@@ -8,4 +8,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface OrganizationRepository extends PagingAndSortingRepository<Organization, Long> {
 
+	Organization findOrganizationByEmail(String email);
 }
