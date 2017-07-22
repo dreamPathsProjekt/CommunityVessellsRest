@@ -111,6 +111,15 @@ public class Event{
 	public void setEventContainer(EventContainer eventContainer) {
 		this.eventContainer = eventContainer;
 	}
+
+
+	public Organization getOrganization() {
+		return organization;
+	}
+
+	public void setOrganization(Organization organization) {
+		this.organization = organization;
+	}
 	
 	
 }

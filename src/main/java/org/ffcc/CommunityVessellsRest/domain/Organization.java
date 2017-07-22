@@ -2,6 +2,7 @@ package org.ffcc.CommunityVessellsRest.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,7 @@ public class Organization {
 	private String description;
 	private String type;
 	
-	@OneToMany(mappedBy = "organization")
+	@OneToMany(mappedBy = "organization",cascade = CascadeType.ALL, orphanRemoval=true)
 	private List<Event> events;
 
 	
@@ -122,6 +123,10 @@ public class Organization {
 
 	public void setEvents(List<Event> events) {
 		this.events = events;
+	}
+	
+	public void addEvent(Event event){
+		this.events.add(event);
 	}
 	
 	

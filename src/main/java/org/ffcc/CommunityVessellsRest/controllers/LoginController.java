@@ -29,17 +29,18 @@ public class LoginController {
 			String message = loginService.login(email, password, session);
 			session.setAttribute("message", message);
 			if(session.getAttribute("user")!=null&&session.getAttribute("user").equals("volunteer")){
-				return "index";
+				return "volunteer";
 			}
 			if(session.getAttribute("user")!=null&&session.getAttribute("user").equals("organization")){
-				return "index";
+				return "organization";
 			}
 			
 		}
 		catch(ConstraintViolationException constraint){
 			session.setAttribute("constraint", constraint.getMessage());
+			return "redirect:/login";
 		}
-		return "login";
+		return "redirect:/login";
 	}
 
 
