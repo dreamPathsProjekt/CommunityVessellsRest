@@ -75,5 +75,15 @@ public class ProductServiceImpl implements ProductService {
 		productRepository.save(product);
 		
 	}
+	
+	@Override
+	public String checkIfExpired(Product product){
+		
+		ExpireOps expireOps=product.getExpireOps();
+		expireOps.setIsExpired();
+		expireOpsRepository.save(expireOps);
+		
+		return expireOps.getIsExpired();
+	}
 
 }

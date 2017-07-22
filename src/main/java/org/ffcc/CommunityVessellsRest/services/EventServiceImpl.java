@@ -87,5 +87,11 @@ public class EventServiceImpl implements EventService {
 		volunteerRepository.save(volunteer);
 		
 	}
+	
+	@Override
+	public String checkIfExpired(Long id){
+		Product product = productService.findProductById(id);
+		return productService.checkIfExpired(product);
+	}
 
 }

@@ -64,7 +64,7 @@ public class ExpireOps {
 	}
 
 	public void setIsExpired() {
-		if(this.expire.after(new java.sql.Date(new java.util.Date().getTime())))
+		if(this.expire.before(new java.sql.Date(new java.util.Date().getTime())))
 			this.isExpired = "Yes";
 		else
 			this.isExpired = "No";
