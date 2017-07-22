@@ -8,4 +8,5 @@ public interface ProductService {
 	Product findProductById(Long id);
 	void createProduct(EventContainer eventContainer,Product product);
 	String checkIfExpired(Product product);
+	void updateProduct(Product product);
 }

@@ -5,7 +5,6 @@ package org.ffcc.CommunityVessellsRest.controllers;
 import org.ffcc.CommunityVessellsRest.domain.Event;
 import org.ffcc.CommunityVessellsRest.domain.Product;
 import org.ffcc.CommunityVessellsRest.services.EventService;
-import org.ffcc.CommunityVessellsRest.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -56,6 +55,7 @@ public class EventController {
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
+	///Volunteer create a Promise on Event
 	@RequestMapping(value = "/api/event/{id}/promise/{volunteer_id}", method = RequestMethod.POST)
 	public ResponseEntity<Void> createPromisedProduct(@PathVariable("id") Long id,@PathVariable("volunteer_id") Long volunteer_id,@RequestBody Product product, UriComponentsBuilder ucBuilder) {
 					
@@ -66,6 +66,7 @@ public class EventController {
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
+	//Check if product is expired at any time
 	@RequestMapping(value = "/api/product/{id}/isexpired", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody String checkIfExpired(@PathVariable("id") Long id){
@@ -75,5 +76,11 @@ public class EventController {
 			
 			return "This product is of type Clothing or the product does not exist";
 		}
+	}
+	
+	@RequestMapping(value = "/api/product/{id}/store", method = RequestMethod.PUT)
+	@ResponseStatus(HttpStatus.OK)
+	public @ResponseBody String storeProduct(@PathVariable("id") Long id){
+		return eventService.storeProduct(id);
 	}
 }

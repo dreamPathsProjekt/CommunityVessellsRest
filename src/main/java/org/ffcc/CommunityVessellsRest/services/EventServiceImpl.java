@@ -94,4 +94,24 @@ public class EventServiceImpl implements EventService {
 		return productService.checkIfExpired(product);
 	}
 
+	@Override
+	public String storeProduct(Long id) {
+		
+		Product product = productService.findProductById(id);
+		EventContainer eventContainer=product.getEventContainer();
+		if(product.getCount()+eventContainer.getAvailableProducts()>eventContainer.getCapacity()){
+			return "Product exceeds "+eventContainer.getTitle()+" capacity: "+eventContainer.getCapacity();
+		}
+		
+		product.setIsPromised("No");
+		product.setDateStored(new java.sql.Date(new java.util.Date().getTime()));
+		productService.updateProduct(product);
+		
+		
+		eventContainer.setAvailableProducts(eventContainer.getAvailableProducts() + product.getCount());
+		eventContainerRepository.save(eventContainer);
+		return "Product Saved in "+eventContainer.getTitle();
+		
+	}
+
 }

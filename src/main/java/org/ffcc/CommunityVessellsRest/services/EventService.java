@@ -16,4 +16,6 @@ public interface EventService {
 	void createPromisedProduct(Long id, Long volunteer_id, Product product);
 
 	String checkIfExpired(Long id);
+	
+	String storeProduct(Long id);
 }
