@@ -3,8 +3,8 @@ package org.ffcc.CommunityVessellsRest.controllers;
 
 
 import org.ffcc.CommunityVessellsRest.domain.Event;
+import org.ffcc.CommunityVessellsRest.domain.Product;
 import org.ffcc.CommunityVessellsRest.services.EventService;
-import org.ffcc.CommunityVessellsRest.services.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -51,6 +51,16 @@ public class EventController {
 		eventService.uploadImage(id, file);
 		
 		HttpHeaders headers = new HttpHeaders();
+		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/api/event/{id}/promise/{volunteer_id}", method = RequestMethod.POST)
+	public ResponseEntity<Void> createPromisedProduct(@PathVariable("id") Long id,@PathVariable("volunteer_id") Long volunteer_id,@RequestBody Product product, UriComponentsBuilder ucBuilder) {
+					
+		eventService.createPromisedProduct(id, volunteer_id, product);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(ucBuilder.path("/api/products/{id}").buildAndExpand(product.getId()).toUri());
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 }

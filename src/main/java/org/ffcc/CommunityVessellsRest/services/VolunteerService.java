@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface VolunteerService {
 
+	Volunteer findVolunteerById(Long id);
 	Volunteer findVolunteerByEmail(String email);
 	void createVolunteer(Volunteer volunteer);
 	void uploadImage(Long id, MultipartFile file);

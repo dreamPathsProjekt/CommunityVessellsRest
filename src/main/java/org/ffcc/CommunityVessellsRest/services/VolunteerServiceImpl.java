@@ -39,4 +39,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 		
 	}
 
+	@Override
+	public Volunteer findVolunteerById(Long id) {
+		return volunteerRepository.findOne(id);
+	}
+
 }

@@ -2,7 +2,12 @@ package org.ffcc.CommunityVessellsRest.services;
 
 public class StorageException extends RuntimeException {
 
-    public StorageException(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 675123563448699174L;
+
+	public StorageException(String message) {
         super(message);
     }
 

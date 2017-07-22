@@ -1,6 +1,5 @@
 package org.ffcc.CommunityVessellsRest.controllers;
 
-import org.ffcc.CommunityVessellsRest.domain.Organization;
 import org.ffcc.CommunityVessellsRest.domain.Volunteer;
 import org.ffcc.CommunityVessellsRest.services.VolunteerService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,8 +2,11 @@ package org.ffcc.CommunityVessellsRest.services;
 
 import org.ffcc.CommunityVessellsRest.domain.Event;
 import org.ffcc.CommunityVessellsRest.domain.EventContainer;
+import org.ffcc.CommunityVessellsRest.domain.Product;
+import org.ffcc.CommunityVessellsRest.domain.Volunteer;
 import org.ffcc.CommunityVessellsRest.repository.EventContainerRepository;
 import org.ffcc.CommunityVessellsRest.repository.EventRepository;
+import org.ffcc.CommunityVessellsRest.repository.VolunteerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +24,15 @@ public class EventServiceImpl implements EventService {
 	
 	@Autowired
 	private StorageService fileUpload;
+	
+	@Autowired
+	VolunteerRepository volunteerRepository;
+	
+	@Autowired
+	private VolunteerService volunteerService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	@Override
 	public void createEvent(Event event) {
@@ -56,6 +68,24 @@ public class EventServiceImpl implements EventService {
 	public Event findEventById(Long id) {
 		Event event= eventRepository.findOne(id);
 		return event;
+	}
+
+	@Override
+	public void createPromisedProduct(Long id, Long volunteer_id,Product product) {
+
+		Event event = eventRepository.findOne(id);
+		Volunteer volunteer = volunteerService.findVolunteerById(volunteer_id);
+		EventContainer eventContainer = event.getEventContainer();
+		
+					
+		product.setIsPromised("Yes");
+		volunteer.addProduct(product);				
+		product.setVolunteer(volunteer);
+		product.setEmail(volunteer.getEmail());
+		
+		productService.createProduct(eventContainer, product);
+		volunteerRepository.save(volunteer);
+		
 	}
 
 }

@@ -1,24 +1,20 @@
 package org.ffcc.CommunityVessellsRest.domain;
 
-import java.util.Collection;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
-import javax.persistence.UniqueConstraint;
-import javax.validation.Constraint;
 
 import org.ffcc.CommunityVessellsRest.encryption.EncryptMD5;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -45,7 +41,8 @@ public class Volunteer {
 	private String firstName;
 	private String lastName;
 	
-	
+	@OneToMany(mappedBy = "volunteer",cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<Product> products;
 	
 	public Long getId() {
 		return id;
@@ -85,9 +82,16 @@ public class Volunteer {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public List<Product> getProducts() {
+		return products;
+	}
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+	public void addProduct(Product product) {
+		this.products.add(product);
+	}
 	
-	//@OneToMany(mappedBy="volunteer", targetEntity=Promise.class)
-	//private Collection promises;
 	
 	
 }

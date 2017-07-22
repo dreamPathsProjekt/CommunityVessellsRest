@@ -1,16 +1,18 @@
 package org.ffcc.CommunityVessellsRest.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.springframework.hateoas.ResourceSupport;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 
 
@@ -26,7 +28,7 @@ public class EventContainer{
 	private String type;
 	private int capacity;
 	
-	
+	@JsonProperty(access=Access.READ_ONLY)
 	private int availableProducts=0;
 	
 	
@@ -34,7 +36,8 @@ public class EventContainer{
 	@JoinColumn(name = "event_id")
 	private Event event;
 
-	
+	@OneToMany(mappedBy = "eventContainer",cascade = CascadeType.ALL, orphanRemoval=true)
+	private List<Product> products;
 	
 	
 	
@@ -91,6 +94,19 @@ public class EventContainer{
 	public void setEvent(Event event) {
 		this.event = event;
 	}
+
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 	
+	public void addProduct(Product product) {
+		this.products.add(product);
+	}
 	
 }
