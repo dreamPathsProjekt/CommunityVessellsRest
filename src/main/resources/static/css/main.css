@@ -1,0 +1,10 @@
+body { padding-top: 5.7em !important; }
+
+.hover-ul:hover{
+  background-color: #78909c !important; 
+}
+
+.navbar-brand:hover{
+  background-color: #78909c !important; 
+}
+

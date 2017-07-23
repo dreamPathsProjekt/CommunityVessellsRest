@@ -5,16 +5,22 @@
 
 <body>
     
-<#include "/templates/register.html"/>    
+<#include "/templates/register.html"/>
+<#include "templates/login.html"/>    
 
-    
-		
-		
-    	
-        <button class="btn btn-raised text-center accent-color" type="button" 
-        data-toggle="modal" data-target="#signUpModal">Join</button>
+<#include "/templates/navbarmain.html"/>    
 
-        <img class= alt="test" src="/img/ffcc(github).png"/>
+<div class="container-fluid">
+
+<#include "/templates/jumbo.html"/>
+		
+
+
+                
+</div>
+
+
+        
         
 <#include "/templates/includes.html"/>
 
