@@ -13,7 +13,7 @@
 <div class="container-fluid">
 
 <#include "/templates/jumbo.html"/>
-		
+<#include "templates/purpose.html"/>		
 
 
                 
@@ -21,7 +21,7 @@
 
 
         
-        
+<#include "templates/footer.html"/>        
 <#include "/templates/includes.html"/>
 
 </body>
