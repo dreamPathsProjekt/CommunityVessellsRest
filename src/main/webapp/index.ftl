@@ -3,12 +3,16 @@
 
 <#include "/templates/header.html"/>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
     
 <#include "/templates/register.html"/>
 <#include "templates/login.html"/>    
-
-<#include "/templates/navbarmain.html"/>    
+<#if sessionObj?has_content>
+<p>session is here ${sessionObj}</p>
+<#else>
+<#include "/templates/navbarmain.html"/>     
+</#if>
+   
 
 <div class="container-fluid">
 

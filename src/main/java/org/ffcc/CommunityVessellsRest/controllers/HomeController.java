@@ -1,13 +1,24 @@
 package org.ffcc.CommunityVessellsRest.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
 
-	@RequestMapping(path="/")
-	public String index(){
+	
+	@RequestMapping(path="/")	
+	public String index(){		
 		return "index";
 	}
+	
+	@RequestMapping(path="/logout")	
+	public String index(HttpSession session){
+		session.invalidate();
+		return "index";
+	}
+	
+	
 }
