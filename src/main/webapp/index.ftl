@@ -7,10 +7,11 @@
     
 <#include "/templates/register.html"/>
 <#include "templates/login.html"/>    
+
 <#if sessionObj?has_content>
-<p>session is here ${sessionObj}</p>
+    <p>session is here ${sessionObj}</p>
 <#else>
-<#include "/templates/navbarmain.html"/>     
+    <#include "/templates/navbarmain.html"/>     
 </#if>
    
 
