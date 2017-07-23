@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head lang="en">
     <meta charset="UTF-8"/>
     <title>ReactJS + Spring Data REST</title>
@@ -11,7 +11,7 @@
 		<form action="/login"  method="post">
     		Email<input type="email" name="email" />
     		Password<input type="password" name="password" />
-    		<p><span th:text="${session.message}"></span><span th:text="${session.constraint}"></span></p>
+    		
     		<button>Submit</button>
 		</form>
 
