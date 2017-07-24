@@ -1,7 +1,9 @@
 {
     "extends": "standard",
     "rules": {
-      "semi": ["error","always"]
+      "semi": ["error","always"],
+      "no-trailing-spaces":1,
+      "indent":"warn"
     },    
     "env": {
         "browser": true,

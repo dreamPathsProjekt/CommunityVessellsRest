@@ -5,7 +5,7 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
     
-<#include "/templates/register.html"/>
+
 <#include "templates/login.html"/>    
 
 <#if sessionObj?has_content>
@@ -20,6 +20,19 @@
 <#include "/templates/jumbo.html"/>
 <#include "templates/purpose.html"/>		
 
+<hr class="divider-color">
+<div class="row text-center" id="register">
+
+<button type="submit" class="btn btn-primary" id="test23">Test</button>
+
+<h2 class="h1_label slideanim">Register Now!</h2>
+<button type="submit" class="btn btn-md btn-default" id="VolunteerBtn">Volunteer</button>
+<button type="submit" class="btn btn-md btn-default" id="OrganizationBtn">Organization</button>
+<div id="show"></div>
+</div>
+
+<#include "/templates/registerOrg.html"/>
+<#include "templates/registerVol.html"/>
 
                 
 </div>
