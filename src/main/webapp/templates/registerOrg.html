@@ -1,39 +1,94 @@
 	
-		<div class="container" id="registerOrg" hidden>
-			<div class="well">	
-			
-			
+<div class="container" id="registerOrg" hidden>    
+    <div class="well">
+		
+	
+
 					<!--form start-->
-					<form class="form-horizontal">
+					<form class="form-horizontal" method="POST" enctype="multipart/form-data" id="sendOrg">
 						<fieldset>
 						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-							<div class="col-sm-10">
-								<input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+							<label for="orgEmail" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-8">
+								<input type="email" class="form-control" id="orgEmail" placeholder="Email" required>
 							</div>
-						</div>
+                        </div>
+                        
 						<div class="form-group"  >
-							<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-							<div class="col-sm-10">
-								<input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+							<label for="orgPassword" class="col-sm-2 control-label">Password</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control" id="orgPassword" placeholder="Password" required minlength="8">
+							</div>
+                        </div>
+                        
+						<div class="form-group"  >
+							<label for="rePassword" class="col-sm-2 control-label">Repeat Password</label>
+							<div class="col-sm-8">
+                                <input type="password" class="form-control" id="orgrePassword" placeholder="Password" required minlength="8" oninput="checkorg(this)">
+                                <script language='javascript' type='text/javascript'>
+                                    function checkorg(input) {
+                                        
+                                        if (input.value != document.getElementById('orgPassword').value) {
+                                            input.setCustomValidity('Password Must be Matching.');
+                                        } else {
+                                            // input is valid -- reset the error message
+                                            input.setCustomValidity('');
+                                        }
+                                    }
+                                </script>
+							</div>
+                        </div>
+
+						<div class="form-group"  >
+							<label for="orgName" class="col-sm-2 control-label">Organization Name</label>
+							<div class="col-sm-8">
+								<input type="text" name="firstname" class="form-control" id="orgName" placeholder="Organization Name">
 							</div>
 						</div>
+						
+					<div class="form-group">
+						<label for="orgType" class="col-md-2 control-label">Select Organization Type<span class="caret"></span></label>
+						
+						<div class="col-sm-8">
+							<select name="orgType" id="orgType" class="form-control">
+								
+								<option>Non Government Organization - NGO</option>
+								<option>Enterprise</option>
+								<option>Government Organization</option>
+							</select>
+							
+						</div>
+					</div>
+						
+						<div class="form-group"  >
+							<label for="orgDescription" class="col-sm-2 control-label">Description</label>
+							<div class="col-sm-8">
+								<textarea name="description" class="form-control" rows="5" id="orgDescription" placeholder="Short Description..." maxlength="255"></textarea>
+							</div>
+                        </div>
+
 						<div class="form-group">
-					      <label class="col-md-2 control-label"></label>
+      						<label for="orgFile" class="col-md-2 control-label">Upload Avatar Image</label>
+							<div class="col-md-8">
+        						<input readonly="" class="form-control" placeholder="Browse..." type="text">        						
+        						<input id="orgFile" name="file" multiple="" type="file" accept="image/x-png,image/gif,image/jpeg">
 
+        						<p class="help-block" id="helper">Only png,jpeg or gif files accepted.<br>Recommended size 150 x 150. File upload limit: 16Mb</p>
+      						</div>
+    					</div>	
 
-					    </div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-md-10">
-								<button type="submit" class="btn btn-primary">Sign Up Organization</button>
+								<button type="submit" class="btn btn-primary">Sign Up</button>
 								<button type="reset" class="btn btn-default">Reset</button>
 							</div>
 						</div>
 					</fieldset>
 					</form>
-					<!--form end-->
-			</div>
-	</div>			
+                    <!--form end-->
+                    
+    </div>
+</div>					
 					
 
 

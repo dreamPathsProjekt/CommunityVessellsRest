@@ -4,42 +4,67 @@
 	
 
 					<!--form start-->
-					<form class="form-horizontal">
+					<form class="form-horizontal" method="POST" enctype="multipart/form-data" id="sendVol">
 						<fieldset>
 						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-							<div class="col-sm-10">
-								<input type="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+							<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-8">
+								<input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
 							</div>
-						</div>
+                        </div>
+                        
 						<div class="form-group"  >
-							<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-							<div class="col-sm-10">
-								<input type="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+							<label for="inputPassword" class="col-sm-2 control-label">Password</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control" id="inputPassword" placeholder="Password" required minlength="8">
+							</div>
+                        </div>
+                        
+						<div class="form-group"  >
+							<label for="rePassword" class="col-sm-2 control-label">Repeat Password</label>
+							<div class="col-sm-8">
+                                <input type="password" class="form-control" id="rePassword" placeholder="Password" required minlength="8" oninput="check(this)">
+                                <script language='javascript' type='text/javascript'>
+                                    function check(input) {
+                                        
+                                        if (input.value != document.getElementById('inputPassword').value) {
+                                            input.setCustomValidity('Password Must be Matching.');
+                                        } else {
+                                            // input is valid -- reset the error message
+                                            input.setCustomValidity('');
+                                        }
+                                    }
+                                </script>
+							</div>
+                        </div>
+
+						<div class="form-group"  >
+							<label for="inputFirstname" class="col-sm-2 control-label">First Name</label>
+							<div class="col-sm-8">
+								<input type="text" name="firstname" class="form-control" id="inputFirstname" placeholder="First Name">
 							</div>
 						</div>
+						
+						<div class="form-group"  >
+							<label for="inputLastname" class="col-sm-2 control-label">Last Name</label>
+							<div class="col-sm-8">
+								<input type="text" name="lastname" class="form-control" id="inputLastname" placeholder="Last Name">
+							</div>
+                        </div>
+                        
 						<div class="form-group">
-					      <label class="col-md-2 control-label"></label>
+      						<label for="inputFile" class="col-md-2 control-label">Upload Avatar Image</label>
+							<div class="col-md-8">
+        						<input readonly="" class="form-control" placeholder="Browse..." type="text">        						
+        						<input id="inputFile" name="file" multiple="" type="file" accept="image/x-png,image/gif,image/jpeg">
 
-					      <div class="col-md-10">
-					        <div class="radio radio-primary">
-					          <label>
-					            <input name="optionsRadios" id="optionsRadios1" value="option1" checked="" type="radio">
-					            I am a Volunteer
-					          </label>
-					        </div>
-					        <div class="radio radio-primary">
-					          <label>
-					            <input name="optionsRadios" id="optionsRadios2" value="option2" type="radio">
-					            I am an Organization
-					          </label>
-					        </div>
-					      </div>
+        						<p class="help-block" id="helper">Only png,jpeg or gif files accepted.<br>Recommended size 150 x 150. File upload limit: 16Mb</p>
+      						</div>
+    					</div>	
 
-					    </div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-md-10">
-								<button type="submit" class="btn btn-primary">Sign Up</button>
+								<button type="submit" class="btn btn-primary" id="volBtn">Sign Up</button>
 								<button type="reset" class="btn btn-default">Reset</button>
 							</div>
 						</div>
