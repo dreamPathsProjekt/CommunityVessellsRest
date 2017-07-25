@@ -12,6 +12,7 @@ $('#sendVol').submit(function (e) {
 
   var formData = new FormData();
   formData.append('file', $('#inputFile')[0].files[0]);
+
   //*  get the file after ajax request
   // var files = $("#inputFile").get(0).files;
   var request =
@@ -42,6 +43,7 @@ $('#sendVol').submit(function (e) {
         var avatarURI = customURI + volunteer.id + '/avatar';
         alert(avatarURI);
         // code to upload here
+        alertSuccess('#alertVol', '#responseMsg');
 
         $.ajax({
           url: avatarURI,
@@ -53,9 +55,6 @@ $('#sendVol').submit(function (e) {
           processData: false
         }).done(function () {
           alertSuccess('#alertVol', '#responseMsg');
-        }).fail(function (xhr, status, error) {
-          // Problem:shows the same error on failed upload but no time to fix.
-          errorHandling(xhr, '#alertVol', '#responseMsg');
         });
       })
         .fail(function (xhr, status, error) {
@@ -65,6 +64,7 @@ $('#sendVol').submit(function (e) {
     .fail(function (xhr, status, error) {
       errorHandling(xhr, '#alertVol', '#responseMsg');
     });
+
   return false;
 });
 

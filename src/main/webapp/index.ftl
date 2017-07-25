@@ -8,8 +8,14 @@
 
 <#include "templates/login.html"/>    
 
-<#if sessionObj?has_content>
-    <p>session is here ${sessionObj}</p>
+<#if sessionUser?has_content>
+    <#if sessionUser == "organization">
+        <#include "/templates/navbarOrg.ftl"/>
+    </#if>
+    <#if sessionUser == "volunteer">
+        <#include "/templates/navbarVol.ftl"/>
+    </#if>
+    
 <#else>
     <#include "/templates/navbarmain.html"/>     
 </#if>
@@ -17,7 +23,20 @@
 
 <div class="container-fluid">
 
+<#if message?has_content && !sessionUser?has_content>
+    <div class="well bg-danger">
+        <a href="#loginModal"  data-toggle="modal" type="button" class="btn btn-large btn-block btn-danger">Error!: ${message}</a>
+    </div>
+</#if>
+
 <#include "/templates/jumbo.html"/>
+
+<#if sessionUser?has_content>
+    <div id="hiddenId" hidden>${sessionId}</div>
+</#if>
+
+
+
 <#include "templates/purpose.html"/>		
 
 <hr class="divider-color">

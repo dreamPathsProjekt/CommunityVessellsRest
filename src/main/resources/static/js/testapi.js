@@ -1,5 +1,21 @@
 var url = 'http://localhost:8080/api/';
 
+/* auto login ajax request
+  var loginData = new FormData();
+  loginData.append('email', email);
+  loginData.append('password', password);
+
+  $.ajax({
+    type: 'POST',
+    url: 'login',
+    contentType: 'application/x-www-form-urlencoded',
+    processData: true,
+    data: loginData
+  }).done(function () {
+    $(window).scrollTop();
+  });
+*/
+
 $('#test23').click(function getOrganizations () {
   $.get(url + 'organizations/')
     .done(function (data) {
@@ -14,4 +30,10 @@ $('#test23').click(function getOrganizations () {
         $(window).scrollTop(scrollPos);
       }
     });
+});
+
+$(function () {
+  //get id from hidden div
+  var id = $('#hiddenId').text();
+  //alert(id);
 });
