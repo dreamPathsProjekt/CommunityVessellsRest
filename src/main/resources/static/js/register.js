@@ -13,3 +13,7 @@ $('#OrganizationBtn').click(function () {
     $(window).scrollTop(scrollPos);
   });
 });
+
+$('.resetbtn').click(function () {
+  $('#alertVol').hide();
+});
