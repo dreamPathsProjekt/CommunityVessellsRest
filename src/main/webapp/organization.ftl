@@ -22,7 +22,7 @@
 <div class="container col-md-12 col-sm-12">
 <div class="row">
 <#include "templates/sideNavOrg.html"/>
-    <div class="col-md-9 col-sm-9 col-sm-offset-1">
+    <div class="col-md-9 col-sm-9 col-sm-offset-1" id="mainPage">
         <div class="row" hidden id="rowOrg">
              <div class="well page text-center center-block" id="orgPage"></div>
         </div>

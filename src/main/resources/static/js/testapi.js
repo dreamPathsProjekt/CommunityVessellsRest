@@ -39,3 +39,11 @@ $(function () {
 });
 */
 $('#flatpickrTest').flatpickr();
+// how to retrieve html elems from loaded dom
+
+$('#eventsPage').click(function () {
+  $('#orgPage').empty().load('/templates/event.html', function () {
+    var text = $('#lala').text();
+    alert(text);
+  });
+});
