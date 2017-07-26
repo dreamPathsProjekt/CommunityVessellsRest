@@ -1,4 +1,4 @@
-var url = 'http://localhost:8080/api/';
+var url = '/api/';
 
 var customURI = url + 'volunteer/';
 
@@ -13,8 +13,6 @@ $('#sendVol').submit(function (e) {
   var formData = new FormData();
   formData.append('file', $('#inputFile')[0].files[0]);
 
-  //*  get the file after ajax request
-  // var files = $("#inputFile").get(0).files;
   var request =
     {
       'email': email,
@@ -24,7 +22,7 @@ $('#sendVol').submit(function (e) {
     };
 
   var data = JSON.stringify(request);
-  console.log(request);
+  // console.log(request);
 
   $.ajax({
     type: 'POST',
@@ -41,7 +39,7 @@ $('#sendVol').submit(function (e) {
         // get back object created to retrieve id
 
         var avatarURI = customURI + volunteer.id + '/avatar';
-        alert(avatarURI);
+        // alert(avatarURI);
         // code to upload here
         alertSuccess('#alertVol', '#responseMsg');
 

@@ -15,5 +15,6 @@ $('#OrganizationBtn').click(function () {
 });
 
 $('.resetbtn').click(function () {
+  $('#alertOrg').hide();
   $('#alertVol').hide();
 });
