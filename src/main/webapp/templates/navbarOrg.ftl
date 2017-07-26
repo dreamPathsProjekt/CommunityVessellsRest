@@ -12,7 +12,7 @@
 	      <ul class="nav navbar-nav">
             <li class="hover-ul"><a href="organization">${sessionEmail} Control Panel</a></li>	        
             <li class="hover-ul"><a href="#purpose">Purpose</a></li>
-			<li class="hover-ul"><a href="#">Api Documentation</a></li>
+						<li class="hover-ul"><a href="#">Api Documentation</a></li>
 	      </ul>
 
 	      <ul class="nav navbar-nav navbar-right">

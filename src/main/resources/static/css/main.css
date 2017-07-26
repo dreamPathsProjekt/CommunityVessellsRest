@@ -1,4 +1,9 @@
-body { padding-top: 5.7em !important; }
+
+body { 
+    
+    padding-top: 5.7em !important;
+        
+}
 
 .hover-ul:hover{
   background-color: #78909c !important; 
@@ -10,8 +15,51 @@ body { padding-top: 5.7em !important; }
 
 #footer {
   padding-top: 1em;
-  margin-top: 1em;
+  margin-top: 5em;
+ 
+  bottom: 0;
+   
 }
+
+#sidenav {
+    padding: 1em !important;
+    background-color: #2b313a !important;
+}
+
+.side_menu ul:not{
+    display: block;
+}
+
+.side_menu li {
+    margin-right: 1em !important;
+    padding: 1em !important;
+}
+
+.side_menu li:hover{
+   
+   color: #eeeeee !important;
+   text-decoration: none !important;
+}
+.side_menu li a{
+    transition: color 0.5s ease;
+    color:#CFD8DC  !important;
+}
+
+
+.side_menu li a:hover{
+   text-decoration: none !important;
+   color:#FF5252 !important;
+}
+
+.pad {
+    padding: 1em;
+}
+
+
+
+
+
+
 
 .slideanim {visibility:hidden;}
 .slide {

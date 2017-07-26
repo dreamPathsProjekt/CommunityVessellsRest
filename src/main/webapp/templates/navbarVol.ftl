@@ -12,7 +12,7 @@
 	      <ul class="nav navbar-nav">
             <li class="hover-ul"><a href="volunteer">${sessionEmail} Control Panel</a></li>	        
             <li class="hover-ul"><a href="#purpose">Purpose</a></li>
-			<li class="hover-ul"><a href="#">Events</a></li>
+						<li class="hover-ul"><a href="#">Events</a></li>
 	      </ul>
 
 	      <ul class="nav navbar-nav navbar-right">

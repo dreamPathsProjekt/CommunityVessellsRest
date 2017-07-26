@@ -70,18 +70,23 @@ function errorHandling (xhr, alert, msgId) {
   var responseError = xhr.responseJSON;
   if (responseError.exception.search('org.springframework.dao.DataIntegrityViolationException') !== -1) {
     $(msgId).empty().append('<strong>Error: Email Already Exists</strong>');
-    $(alert).hide().show(500).attr('class', 'alert alert-dismissible alert-danger');
+    $(alert).hide().show(500).attr('class', 'alert alert-dismissible alert-danger', function () {
+      let scrollPos = $(alert).offset().top;
+      $(window).scrollTop(scrollPos);
+    });
   } else {
     $(msgId).empty().append('<strong>Error: Registration failed</strong>');
-    $(alert).hide().show(500).attr('class', 'alert alert-dismissible alert-danger');
+    $(alert).hide().show(500).attr('class', 'alert alert-dismissible alert-danger', function () {
+      let scrollPos = $(alert).offset().top;
+      $(window).scrollTop(scrollPos);
+    });
   }
-  let scrollPos = $(alert).offset().top;
-  $(window).scrollTop(scrollPos);
 }
 
 function alertSuccess (alert, msgId) {
   $(msgId).empty().append('<strong>Success: Registration completed</strong>');
-  $(alert).hide().show(500).attr('class', 'alert alert-dismissible alert-success');
-  let scrollPos = $(alert).offset().top;
-  $(window).scrollTop(scrollPos);
+  $(alert).hide().show(500).attr('class', 'alert alert-dismissible alert-success', function () {
+    let scrollPos = $(alert).offset().top;
+    $(window).scrollTop(scrollPos);
+  });
 }

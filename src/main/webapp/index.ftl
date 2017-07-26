@@ -21,7 +21,7 @@
 </#if>
    
 
-<div class="container-fluid">
+<div class="container-fluid main">
 
 <#if message?has_content && !sessionUser?has_content>
     <div class="well bg-danger">
