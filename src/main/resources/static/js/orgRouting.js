@@ -34,7 +34,19 @@ $('#createEventPage').click(function () {
 function showCreateEventPage () {
   $('#createPage').empty().load('/templates/createEvent.html', function () {
     // Flatpickr init
-    $('#inputStart').flatpickr();
-    $('#inputEnd').flatpickr();
+
+    $('#inputStart').flatpickr({
+      minDate: 'today'
+    });
+
+    // Get the input Start Date and intantiate a new datepicker with this min Date
+    $('#inputStart').change(function () {
+      var selected = $('#inputStart').val();
+      alert(selected);
+      var newMin = Date.parse(selected);
+      $('#inputEnd').flatpickr({
+        minDate: newMin
+      });
+    });
   });
 }
