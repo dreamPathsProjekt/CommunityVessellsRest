@@ -31,9 +31,11 @@ $('#test23').click(function getOrganizations () {
       }
     });
 });
-
+/*
 $(function () {
   //get id from hidden div
   var id = $('#hiddenId').text();
   //alert(id);
 });
+*/
+$('#flatpickrTest').flatpickr();

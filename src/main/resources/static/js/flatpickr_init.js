@@ -1,0 +1,1 @@
+// Initialize flatpickr input elements
