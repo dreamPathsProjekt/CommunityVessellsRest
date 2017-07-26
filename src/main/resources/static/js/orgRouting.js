@@ -33,6 +33,11 @@ $('#createEventPage').click(function () {
 
 function showCreateEventPage () {
   $('#createPage').empty().load('/templates/createEvent.html', function () {
+    $('.resetbtn').click(function () {
+      $('#inputHidden').hide();
+      $('#alertEvent').hide();
+    });
+    
     // Flatpickr init
 
     $('#inputStart').flatpickr({
@@ -42,11 +47,12 @@ function showCreateEventPage () {
     // Get the input Start Date and intantiate a new datepicker with this min Date
     $('#inputStart').change(function () {
       var selected = $('#inputStart').val();
-      alert(selected);
+      $('#inputHidden').show(1000);
       var newMin = Date.parse(selected);
       $('#inputEnd').flatpickr({
         minDate: newMin
       });
     });
+    $('#sendEvent').submit(createEventAjax);
   });
 }
