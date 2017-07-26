@@ -1,0 +1,79 @@
+                <h1 class="h1_label primary-text-color">New Event</h1>
+                    <!--form start-->                
+					<form class="form-horizontal" method="POST" enctype="multipart/form-data" id="sendEvent">
+						<fieldset>
+						<div class="form-group">
+							<label for="inputEventTitle" class="col-sm-2 control-label">Title</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="inputEventTitle" placeholder="Title" required>
+							</div>
+                        </div>
+                        
+						<div class="form-group">
+							<label for="inputStart" class="col-sm-2 control-label">Starts</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="inputStart" placeholder="Start Date" readonly="readonly" required>
+							</div>
+                        </div>
+
+						<div class="form-group">
+							<label for="inputEnd" class="col-sm-2 control-label">Ends</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="inputEnd" placeholder="Closing Date" readonly="readonly" required>
+							</div>
+                        </div>
+
+						<div class="form-group"  >
+							<label for="address" class="col-sm-2 control-label">Address</label>
+							<div class="col-sm-8">
+								<input type="text" name="address" class="form-control" id="address" placeholder="Address" required>
+							</div>
+						</div>
+                        
+                        <div class="form-group"  >
+							<label for="inputContainerTitle" class="col-sm-2 control-label">Event Container Title</label>
+							<div class="col-sm-8">
+								<input type="text" name="inputContainerTitle" class="form-control" id="inputContainerTitle" placeholder="Event Container Title" required>
+							</div>
+						</div>
+
+					    <div class="form-group">
+						    <label for="inputContainerType" class="col-md-2 control-label">Select Event Type<span class="caret"></span></label>
+						
+						    <div class="col-sm-8">
+							<select name="inputContainerType" id="inputContainerType" class="form-control">
+								
+								<option>Food</option>
+								<option>Pharmaceuticals</option>
+								<option>Clothing</option>
+							</select>
+							
+						    </div>
+					    </div>
+						
+						<div class="form-group"  >
+							<label for="inputCapacity" class="col-sm-2 control-label">Capacity</label>
+							<div class="col-sm-8">
+								<input name="inputCapacity" class="form-control" min="1" type="number" id="inputCapacity" placeholder="Total Container Capacity" maxlength="255"></input>
+							</div>
+                        </div>
+
+						<div class="form-group">
+      						<label for="eventFile" class="col-md-2 control-label">Upload Event Image</label>
+							<div class="col-md-8">
+        						<input readonly="" class="form-control" placeholder="Browse..." type="text">        						
+        						<input id="eventFile" name="file" multiple="" type="file" accept="image/x-png,image/gif,image/jpeg">
+
+        						<p class="help-block" id="helper">Only png,jpeg or gif files accepted.<br>Recommended size 150 x 150. File upload limit: 16Mb</p>
+      						</div>
+    					</div>	
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-md-10">
+								<button type="submit" class="btn btn-primary" id="createBtn">Sign Up</button>
+								<button type="reset" class="btn btn-default resetbtn">Reset</button>
+							</div>
+						</div>
+					</fieldset>
+					</form>
+                    <!--form end-->

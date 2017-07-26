@@ -23,9 +23,22 @@
 <div class="row">
 <#include "templates/sideNavOrg.html"/>
     <div class="col-md-9 col-sm-9 col-sm-offset-1" id="mainPage">
-        <div class="row" hidden id="rowOrg">
+        <!-- Home Page -->
+        <div class="row" id="rowOrg" hidden >
              <div class="well page text-center center-block" id="orgPage"></div>
         </div>
+
+        <!-- Create Event -->
+        <div class="row" id="createEvent" hidden >
+            <div class="well page text-center center-block" id="createPage"></div>
+        </div>
+
+        <!-- Events go here -->
+        <div class="row" id="eventWrap" hidden >
+            
+        </div>
+
+
     </div>
 </div>
 </div>
