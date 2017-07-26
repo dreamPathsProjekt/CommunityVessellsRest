@@ -34,10 +34,12 @@
         </div>
 
         <!-- Events go here -->
-        <div class="row" id="eventWrap" hidden >
-            
+        <div class="row" id="eventRow" hidden >
+            <div class="page text-center center-block" id="eventWrap"></div>
         </div>
 
+        <div id="helper" hidden></div>
+        
 
     </div>
 </div>

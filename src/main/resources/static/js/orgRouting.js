@@ -1,6 +1,6 @@
 $('#homePage').click(function () {
   $('#createEvent').hide();
-  $('#eventWrap').hide();
+  $('#eventRow').hide();
 
   showOrgDetails();
 
@@ -21,11 +21,23 @@ function showOrgDetails () {
 
 $('#createEventPage').click(function () {
   $('#rowOrg').hide();
-  $('#eventWrap').hide();
+  $('#eventRow').hide();
 
   showCreateEventPage();
 
   $('#createEvent').hide().show(600, function () {
+    let scrollPos = $(this).offset().top;
+    $(window).scrollTop(scrollPos);
+  });
+});
+
+$('#eventsPage').click(function () {
+  $('#rowOrg').hide();
+  $('#createEvent').hide();
+
+  getEventsByOrg();
+
+  $('#eventRow').hide().show(600, function () {
     let scrollPos = $(this).offset().top;
     $(window).scrollTop(scrollPos);
   });
@@ -37,7 +49,7 @@ function showCreateEventPage () {
       $('#inputHidden').hide();
       $('#alertEvent').hide();
     });
-    
+
     // Flatpickr init
 
     $('#inputStart').flatpickr({

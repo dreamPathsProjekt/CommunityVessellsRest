@@ -7,7 +7,7 @@ var createEventAjax = function (e) {
   var customURIEvent = urlOrg + 'organization/' + orgId + '/event';
   var eventData = jsonfromInputEvent('#inputEventTitle', '#inputStart', '#inputEnd', '#address', '#inputContainerTitle', '#inputContainerType', '#inputCapacity');
   var avatarData = getEventFile('#eventFile');
-  
+
   $.ajax({
     type: 'POST',
     url: customURIEvent,
