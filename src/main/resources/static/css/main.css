@@ -55,8 +55,20 @@ body {
     padding: 1em;
 }
 
+.eventImg {
+    width: 50% !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
 
+.event {
+    margin-bottom: 5em !important;
+}
 
+.contTitle {
+    color: #607D8B !important;
+}
 
 
 
