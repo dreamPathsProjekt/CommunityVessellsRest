@@ -42,7 +42,7 @@
 <hr class="divider-color">
 <div class="row text-center" id="register">
 
-<button type="submit" class="btn btn-primary" id="test23">Test</button>
+<!-- <button type="submit" class="btn btn-primary" id="test23">Test</button> -->
 
 <h2 class="h1_label slideanim">Register Now!</h2>
 <button type="submit" class="btn btn-md btn-default" id="VolunteerBtn">Volunteer</button>

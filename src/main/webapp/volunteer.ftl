@@ -23,8 +23,19 @@
 <div class="row">
 <#include "templates/sideNavVol.html"/>
     <div class="col-md-9 col-sm-9 col-sm-offset-1" id="mainPageVol">
+        <!-- Home Page -->
         <div class="row" hidden id="rowVol">
              <div class="well page text-center center-block" id="volPage"></div>
+        </div>
+
+        <!-- Create Promise -->
+        <div class="row" id="promise" hidden >
+            <div class="well page text-center center-block" id="promisePage"></div>
+        </div>
+
+        <!-- Events go here -->
+        <div class="row" id="eventRowVol" hidden >
+            <div class="page text-center center-block" id="eventWrapVol"></div>
         </div>
     </div>
 </div>
