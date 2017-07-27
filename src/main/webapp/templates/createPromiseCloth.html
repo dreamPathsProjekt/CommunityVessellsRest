@@ -1,0 +1,63 @@
+                <h1 class="h1_label primary-text-color">Promise Products</h1>
+                    <!--form start-->                
+					<form class="form-horizontal" method="POST" enctype="multipart/form-data" id="sendPromise">
+						<fieldset>
+						<div class="form-group">
+							<label for="promiseTitle" class="col-sm-2 control-label">Title</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="promiseTitle" placeholder="Name Your Products" required>
+							</div>
+                        </div>
+
+					    <div class="form-group">
+						    <label for="sizeCloth" class="col-md-2 control-label">Select Size<span class="caret"></span></label>
+						
+						    <div class="col-sm-8">
+							<select name="sizeCloth" id="sizeCloth" class="form-control">
+								
+								<option>XL</option>
+								<option>L</option>
+                                <option>M</option>
+                                <option>S</option>
+                                <option>XS</option>
+							</select>
+							
+						    </div>
+					    </div>                        
+
+					    <div class="form-group">
+						    <label for="conditionCloth" class="col-md-2 control-label">Condition of Clothes<span class="caret"></span></label>
+						
+						    <div class="col-sm-8">
+							<select name="conditionCloth" id="conditionCloth" class="form-control">							
+								<option>Mint</option>
+								<option>Near-Mint</option>
+                                <option>Very-Good</option>
+                                <option>Good</option>
+                                <option>Poor</option>
+                                <option>Fubar</option>
+							</select>
+							
+						    </div>
+					    </div>                        
+
+						<div class="form-group"  >
+							<label for="count" class="col-sm-2 control-label">Quantity</label>
+							<div class="col-sm-8">
+								<input name="count" class="form-control" min="1" type="number" id="count" placeholder="" maxlength="255"></input>
+							</div>
+                        </div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-md-10">
+								<button type="submit" class="btn btn-primary" id="createBtn">Create</button>
+								<button type="reset" class="btn btn-default resetbtn">Reset</button>
+							</div>
+						</div>
+					</fieldset>
+					</form>
+                    <!--form end-->
+            <div class="" id="alertEvent" hidden>
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<span id="responseMsgEvent"></span>			
+			</div>

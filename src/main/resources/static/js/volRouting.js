@@ -21,7 +21,7 @@ $('#promisesButton').click(function () {
   $('#rowVol').hide();
   $('#eventRowVol').hide();
 
-  //showCreateEventPage();
+  // showCreatePromisePage();
 
   $('#promise').hide().show(600, function () {
     let scrollPos = $(this).offset().top;
@@ -42,28 +42,51 @@ $('#eventsPageVol').click(function () {
 });
 
 // change to create Promise
-function showCreateEventPage () {
-  $('#promisePage').empty().load('/templates/createEvent.html', function () {
+function showCreatePromisePage (promiseURI, containerType) {
+  $('#rowVol').hide();
+  $('#eventRowVol').hide();
+  // load form based on content type
+  if (containerType === 'Food' || containerType === 'Pharmaceuticals') {
+    showCreateExp(promiseURI);
+  }
+  if (containerType === 'Clothing') {
+    showCreateCloth(promiseURI);
+  }
+}
+
+function showCreateExp (promiseURI) {
+  $('#promisePage').empty().load('/templates/createPromiseExp.html', function () {
     $('.resetbtn').click(function () {
       $('#inputHidden').hide();
       $('#alertEvent').hide();
     });
 
+    $('#promise').hide().show(600, function () {
+      let scrollPos = $(this).offset().top;
+      $(window).scrollTop(scrollPos);
+    });
     // Flatpickr init
 
-    $('#inputStart').flatpickr({
+    $('#expire').flatpickr({
       minDate: 'today'
     });
 
-    // Get the input Start Date and intantiate a new datepicker with this min Date
-    $('#inputStart').change(function () {
-      var selected = $('#inputStart').val();
-      $('#inputHidden').show(1000);
-      var newMin = Date.parse(selected);
-      $('#inputEnd').flatpickr({
-        minDate: newMin
-      });
+    createExpPromiseAjax(promiseURI);
+  });
+}
+
+function showCreateCloth (promiseURI) {
+  $('#promisePage').empty().load('/templates/createPromiseCloth.html', function () {
+    $('.resetbtn').click(function () {
+      $('#inputHidden').hide();
+      $('#alertEvent').hide();
     });
-    $('#sendEvent').submit(createEventAjax);
+
+    $('#promise').hide().show(600, function () {
+      let scrollPos = $(this).offset().top;
+      $(window).scrollTop(scrollPos);
+    });
+
+    createClothPromiseAjax(promiseURI);
   });
 }

@@ -21,9 +21,9 @@ function eventTabGenerator (eventObj, eventContainer, organization) {
   // var products = eventContainer._links.products.href;
   // generate href for promise
   $('#eventTab' + eventObj.id).find('.productBtn').click(function () {
-    var promiseURI = '/api/event/' + eventObj.id + '/volunteer/' + volunteerId;
-    // bind uri ok
-    alert(promiseURI);
+    var promiseURI = '/api/event/' + eventObj.id + '/promise/' + volunteerId;
+    var containerType = eventContainer.type;
+    showCreatePromisePage(promiseURI, containerType);
   });
 }
 
@@ -48,9 +48,9 @@ function eventTabGeneratorWithoutImage (eventObj, eventContainer, organization) 
   // var products = eventContainer._links.products.href;
   // generate href for promise
   $('#eventTab' + eventObj.id).find('.productBtn').click(function () {
-    var promiseURI = '/api/event/' + eventObj.id + '/volunteer/' + volunteerId;
-    // bind uri ok
-    alert(promiseURI);
+    var promiseURI = '/api/event/' + eventObj.id + '/promise/' + volunteerId;
+    var containerType = eventContainer.type;
+    showCreatePromisePage(promiseURI, containerType);
   });
 }
 
