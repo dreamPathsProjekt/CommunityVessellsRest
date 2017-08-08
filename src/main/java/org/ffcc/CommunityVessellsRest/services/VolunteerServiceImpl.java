@@ -33,7 +33,7 @@ public class VolunteerServiceImpl implements VolunteerService {
 	@Override
 	public void uploadImage(Long id, MultipartFile file) {
 		Volunteer volunteer=volunteerRepository.findOne(id);
-		volunteer.setAvatarPath("/img/user/"+fileUpload.store(file));
+		volunteer.setAvatarPath("images/user/"+fileUpload.store(file));
 		volunteerRepository.save(volunteer);
 		
 		

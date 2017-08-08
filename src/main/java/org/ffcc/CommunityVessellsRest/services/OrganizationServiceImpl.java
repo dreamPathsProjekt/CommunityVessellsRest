@@ -41,7 +41,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 	@Override
 	public void uploadImage(Long id, MultipartFile file) {
 		Organization organization=organizationRepository.findOne(id);
-		organization.setAvatarPath("/img/user/"+fileUpload.store(file));
+		organization.setAvatarPath("images/user/"+fileUpload.store(file));
 		organizationRepository.save(organization);
 		
 		

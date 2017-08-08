@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<#include "/templates/header.html"/>
+<#include "templates/header.html"/>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
     
@@ -10,14 +10,14 @@
 
 <#if sessionUser?has_content>
     <#if sessionUser == "organization">
-        <#include "/templates/navbarOrg.ftl"/>
+        <#include "templates/navbarOrg.ftl"/>
     </#if>
     <#if sessionUser == "volunteer">
-        <#include "/templates/navbarVol.ftl"/>
+        <#include "templates/navbarVol.ftl"/>
     </#if>
     
 <#else>
-    <#include "/templates/navbarmain.html"/>     
+    <#include "templates/navbarmain.html"/>     
 </#if>
    
 
@@ -29,7 +29,7 @@
     </div>
 </#if>
 
-<#include "/templates/jumbo.html"/>
+<#include "templates/jumbo.html"/>
 
 <#if sessionUser?has_content>
     <div id="hiddenId" hidden>${sessionId}</div>
@@ -50,7 +50,7 @@
 <div id="show"></div>
 </div>
 
-<#include "/templates/registerOrg.html"/>
+<#include "templates/registerOrg.html"/>
 <#include "templates/registerVol.html"/>
 
                 
@@ -59,7 +59,7 @@
 
         
 <#include "templates/footer.html"/>        
-<#include "/templates/includes.html"/>
+<#include "templates/includes.html"/>
 
 </body>
 </html>

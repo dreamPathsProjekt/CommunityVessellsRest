@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-<#include "/templates/header.html"/>
+<#include "templates/header.html"/>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <#if sessionUser?has_content>
     <#if sessionUser == "volunteer">
-        <#include "/templates/navbarVol.ftl"/>
+        <#include "templates/navbarVol.ftl"/>
     </#if>
 
 <#else>
-    <#include "/templates/navbarmain.html"/>     
+    <#include "templates/navbarmain.html"/>     
 </#if>
 
 <div class="container-fluid main">
@@ -45,7 +45,7 @@
 
 
 <#include "templates/footer.html"/>        
-<#include "/templates/includesVol.html"/>
+<#include "templates/includesVol.html"/>
 
 </body>
 </html>

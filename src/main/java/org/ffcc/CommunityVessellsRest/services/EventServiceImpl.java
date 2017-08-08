@@ -60,7 +60,7 @@ public class EventServiceImpl implements EventService {
 	public void uploadImage(Long id,MultipartFile file){
 		
 		Event event=eventRepository.findOne(id);
-		event.setAvatar("/img/user/"+fileUpload.store(file));
+		event.setAvatar("images/user/"+fileUpload.store(file));
 		eventRepository.save(event);
 	}
 
